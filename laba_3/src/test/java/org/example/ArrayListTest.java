@@ -38,9 +38,40 @@ public class ArrayListTest {
         assertEquals(100, arrayList.size());
     }
 
-      @Test
+    @Test
     public void whenListClearedThenSizeMustBe0() {
         arrayList.clear();
         assertEquals(0, arrayList.size());
+    }
+
+    @Test
+    public void whenIndexOutOfBoundsThenThrownException() {
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            arrayList.get(100);
+        });
+    }
+
+    @Test
+    public void methodGetReturnedRightValue() {
+        int i = arrayList.get(0);
+        assertEquals(0, i);
+    }
+
+    @Test
+    public void insertIntoMiddle() {
+        arrayList.add(50, 66);
+        assertEquals(66, arrayList.get(50).intValue());
+    }
+
+    @Test
+    public void insertIntoFirstPosition() {
+        arrayList.add(0, 0);
+        assertEquals(0, arrayList.get(0).intValue());
+    }
+
+    @Test
+    public void insertIntoLastPosition() {
+        arrayList.add(100, 100);
+        assertEquals(100, arrayList.get(100).intValue());
     }
 }
