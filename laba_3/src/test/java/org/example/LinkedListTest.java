@@ -37,4 +37,41 @@ public class LinkedListTest {
         assertTrue(linkedList.remove(Integer.valueOf(102)));
         assertEquals(100, linkedList.size());
     }
+
+    @Test
+    public void whenListClearedThenSizeMustBe0() {
+        linkedList.clear();
+        assertEquals(0, linkedList.size());
+    }
+
+    @Test
+    public void whenIndexOutOfBoundsThenThrownException() {
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            linkedList.get(100);
+        });
+    }
+
+    @Test
+    public void methodGetReturnedRightValue() {
+        int i = linkedList.get(0);
+        assertEquals(0, i);
+    }
+
+    @Test
+    public void insertIntoMiddle() {
+        linkedList.add(50, 66);
+        assertEquals(66, linkedList.get(50).intValue());
+    }
+
+    @Test
+    public void insertIntoFirstPosition() {
+        linkedList.add(0, 0);
+        assertEquals(0, linkedList.get(0).intValue());
+    }
+
+    @Test
+    public void insertIntoLastPosition() {
+        linkedList.add(100, 100);
+        assertEquals(100, linkedList.get(100).intValue());
+    }
 }
