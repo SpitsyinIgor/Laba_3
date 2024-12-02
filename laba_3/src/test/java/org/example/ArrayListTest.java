@@ -9,32 +9,38 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ArrayListTest {
-   private List<Integer> linkedList;
+    private List<Integer> arrayList;
 
     @BeforeEach
     public void setUp() {
-        linkedList = new LinkedList<>();
+        arrayList = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            linkedList.add(i);
+            arrayList.add(i);
         }
     }
 
     @Test
     public void whenAdded100ElementsThenSizeMustBe100() {
-        assertEquals(100, linkedList.size());
+        assertEquals(100, arrayList.size());
     }
 
-   @Test
+    @Test
     public void whenElementRemovedByIndexThenSizeMustBeDecreased() {
-        linkedList.remove(5);
-        assertEquals(99, linkedList.size());
+        arrayList.remove(5);
+        assertEquals(99, arrayList.size());
     }
 
     @Test
     public void whenElementRemovedThenSizeMustBeDecreased() {
-        linkedList.add(102);
-        assertEquals(101, linkedList.size());
-        assertTrue(linkedList.remove(Integer.valueOf(102)));
-        assertEquals(100, linkedList.size());
+        arrayList.add(102);
+        assertEquals(101, arrayList.size());
+        assertTrue(arrayList.remove(Integer.valueOf(102)));
+        assertEquals(100, arrayList.size());
+    }
+
+      @Test
+    public void whenListClearedThenSizeMustBe0() {
+        arrayList.clear();
+        assertEquals(0, arrayList.size());
     }
 }
